@@ -1,0 +1,228 @@
+
+:root {
+  --bg: #1c1410;
+  --bg-b: #1e171f;
+  --fg: #f4fefb;
+  --fg-b: #e5e3d3;
+  --txt: #eeaa4a;
+  --acnt-a: #9e4c16;
+  --acnt-b: #fbe6cd;
+  --acnt-c: #371a0c;
+  --acnt-d: #c88766;
+  --acnt-e: #0d080c;
+  --pad-base: #efa34d;
+  --pad-active: #ffcc88;
+  --pad-mis: #ff3311;
+  --clr: #00000000;
+}
+
+html:['base'] {
+  --bg: #1c1410;
+  --bg-b: #1e171f;
+  --fg: #f4fefb;
+  --fg-b: #e5e3d3;
+  --txt: #eeaa4a;
+  --acnt-a: #9e4c16;
+  --acnt-b: #fbe6cd;
+  --acnt-c: #371a0c;
+  --acnt-d: #c88766;
+  --acnt-e: #0d080c;
+  --pad-base: #efa34d;
+  --pad-active: #ffcc88;
+  --pad-mis: #ff3311;
+  --clr: #00000000;
+}
+
+html:['crm'] {
+  --bg: #020a00;
+  --bg-b: #1e171f;
+  --fg: #f4fefb;
+  --fg-b: #e5e3d3;
+  --txt: #eeaa4a;
+  --acnt-a: #0a1008;
+  --acnt-b: #9ca27f;
+  --acnt-c: #465f62;
+  --acnt-d: #78af68;
+  --acnt-e: #080907;
+  --acnt-f: #050b02;
+  --pad-base: var(--acnt-c);
+  --pad-active: #ffcc88;
+  --pad-mis: #ff3311;
+  --clr: #00000000;
+}
+
+@font-face {
+  src: url(./../fonts/Nunito/Nunito-Regular.ttf);
+  font-family: mono;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: unset;
+  border: unset;
+  outline: unset;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  user-select: none;
+  font-family: mono;
+  background: var(--acnt-g);
+
+
+body, html {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.outer-field {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  height: 100vh;
+  background: var(--bg);
+}
+
+/*
+@keyframes logo-anim {
+  0% {
+    background: #ffffaa;
+    text-shadow: .2em .2em .7em var(--pad-active);
+  }
+
+  50% {
+    background: #fffaaa;
+    text-shadow: -.2em -.2em .7em #ffaa00;
+  }
+
+  100% {
+    background: #0a0aff;
+    text-shadow: .2em .2em .7em #00ffaa;
+  }
+}
+*/
+
+.logo-text {
+  /*
+  animation-name: logo-anim;
+  animation-duration: .2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  */
+  width: 6em;
+  height: 2em;
+  position: absolute;
+  bottom: calc(((100vh / 5) * 4) - 3em);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .2em;
+  letter-spacing: .05em;
+  text-shadow: .2em .2em .7em var(--pad-active);
+}
+
+.logo-letter {
+  color: var(--pad-active);
+  opacity: 0;
+  transition: .7s;
+}
+
+.cluster-field {
+  position: absolute;
+  width: 10em;
+  height: 10em;
+  background: var(--clr);
+  border-radius: 50%;
+  box-shadow: var(--clr) 0 0 .2em .1em;
+  bottom: calc((100vh / 2) - 5em);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg);
+  transition: 1s;
+  transition-timing-function: ease;
+  opacity: 0;
+}
+
+.cluster-row {
+  width: 100%;
+  height: calc(100% / 4);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.cluster-object {
+  background: var(--fg);
+  border-radius: 50%;
+  width: .7em;
+  height: .7em;
+}
+
+.quad-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--clr);
+  z-index: 4;
+  overflow: hidden;
+  z-index: 1;
+  
+}
+
+.quad-row {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.quads {
+  background: var(--acnt-a);
+  width: 50%;
+  height: 100%;
+  position: relative;
+  transition: 1s;
+  transition-timing-function: ease;
+  border: 1px solid var(--clr);
+}
+
+.prime-outer {
+  position: absolute;
+  width: 6em;
+  height: 6em;
+  background: var(--acnt-a);
+  bottom: calc((100vh / 5) - 3em);
+  z-index: 3;
+  border-radius: 50%;
+  box-shadow: var(--acnt-f) 0 0 .9em .7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .2em;
+  gap: .2em;
+  transition: 2s;
+  opacity: 0;
+}
+
+.primer {
+  background: var(--acnt-a);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: .7s;
+  border: 1px outset var(--pad-active);
+}
+
+@media (max-width: 1080px) {
+}
+
